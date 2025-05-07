@@ -5,7 +5,6 @@ import { toast } from "@/components/ui/sonner";
 interface User {
   id: string;
   username: string;
-  email: string;
 }
 
 interface AuthContextType {
@@ -13,7 +12,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (username: string, password: string) => Promise<void>;
-  register: (username: string, email: string, password: string) => Promise<void>;
+  register: (username: string, password: string) => Promise<void>;
   logout: () => void;
 }
 
@@ -54,8 +53,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       // For demo, we'll accept any non-empty username/password
       const mockUser = {
         id: Math.random().toString(36).substring(2, 9),
-        username,
-        email: `${username}@example.com` // Mock email
+        username
       };
 
       // Save user to localStorage
@@ -71,21 +69,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  const register = async (username: string, email: string, password: string) => {
+  const register = async (username: string, password: string) => {
     try {
       // Simulating API call
       setIsLoading(true);
       
       // This is a mock - in real world, this would call your backend API
-      if (!username || !email || !password) {
-        throw new Error("All fields are required");
+      if (!username || !password) {
+        throw new Error("Username and password are required");
       }
 
       // Mock registration success
       const mockUser = {
         id: Math.random().toString(36).substring(2, 9),
-        username,
-        email
+        username
       };
 
       // Save user to localStorage
