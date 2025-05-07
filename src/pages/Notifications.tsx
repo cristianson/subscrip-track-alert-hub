@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -20,7 +19,7 @@ const Notifications = () => {
   
   const [emailNotifications, setEmailNotifications] = useState(true);
   const [days, setDays] = useState(notificationDaysBefore);
-  const [testEmailAddress, setTestEmailAddress] = useState(user?.email || "");
+  const [testEmailAddress, setTestEmailAddress] = useState("");
   const [sendingTest, setSendingTest] = useState(false);
   
   const getUpcomingNotifications = () => {

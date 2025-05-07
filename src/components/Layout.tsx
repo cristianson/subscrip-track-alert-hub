@@ -107,7 +107,6 @@ const Layout = ({ children }: LayoutProps) => {
               <p className="text-sm font-medium text-gray-700 truncate">
                 {user?.username}
               </p>
-              <p className="text-xs text-gray-500 truncate">{user?.email}</p>
             </div>
             <Button
               variant="ghost"
@@ -185,7 +184,6 @@ const Layout = ({ children }: LayoutProps) => {
                   <p className="text-sm font-medium text-gray-700 truncate">
                     {user?.username}
                   </p>
-                  <p className="text-xs text-gray-500 truncate">{user?.email}</p>
                 </div>
                 <Button
                   variant="ghost"
@@ -247,7 +245,6 @@ const Layout = ({ children }: LayoutProps) => {
                   <div className="flex items-center justify-start p-2">
                     <div className="flex flex-col space-y-1 leading-none">
                       <p className="font-medium">{user?.username}</p>
-                      <p className="text-sm text-muted-foreground">{user?.email}</p>
                     </div>
                   </div>
                   <DropdownMenuSeparator />

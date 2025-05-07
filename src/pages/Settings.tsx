@@ -14,7 +14,7 @@ const Settings = () => {
   const { subscriptions } = useSubscriptions();
   const { notificationDaysBefore } = useNotifications();
   
-  const [email, setEmail] = useState(user?.email || "");
+  const [email, setEmail] = useState("");
   const [username, setUsername] = useState(user?.username || "");
   const [isSavingProfile, setIsSavingProfile] = useState(false);
   
@@ -39,8 +39,8 @@ const Settings = () => {
       if (user) {
         const updatedUser = {
           ...user,
-          email,
           username
+          // email is no longer part of the user object
         };
         localStorage.setItem("user", JSON.stringify(updatedUser));
         
@@ -58,7 +58,7 @@ const Settings = () => {
     const data = {
       user: {
         username: user?.username,
-        email: user?.email
+        // No longer including email
       },
       settings: {
         notificationDaysBefore
